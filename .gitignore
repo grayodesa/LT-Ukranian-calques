@@ -1,0 +1,7 @@
+.claude/
+__pycache__/
+*.pyc
+.DS_Store
+ua-gec/
+ngrams/
+*.log

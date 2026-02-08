@@ -1,0 +1,1541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css"
+  href="rules.css" title="Easy editing stylesheet" ?>
+<!--
+  Ukrainian fluency rules auto-generated from UA-GEC corpus
+  (https://github.com/grammarly/ua-gec)
+
+  Generated rules: 132
+  Filtering: min_count=2, single_token_min_count=5, min_docs=2
+  Skipped: 202 blacklisted, 5373 below threshold, 17 too few docs, 17 merged duplicates
+
+  How to use:
+  1. Place this file alongside grammar.xml in the Ukrainian rules directory
+  2. Or load it as an external rules file via LanguageTool API
+  3. Or reference it in Ukrainian.java RULE_FILES list
+
+  License: CC-BY-4.0 (same as UA-GEC corpus)
+-->
+<rules lang="uk"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="rules.xsd">
+
+  <category id="UA_GEC_CALQUE" name="Кальки (UA-GEC)" type="style">
+
+    <rule id="UA_GEC_F_CALQUE_0000_таким_чином" name="Калька: Таким чином → Отже">
+
+      <pattern>
+      <token case_sensitive="no">Таким</token>
+      <token case_sensitive="no">чином</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Отже</suggestion> Також: <suggestion>Отже,</suggestion>, <suggestion>так</suggestion>. (зустрічається 19× у корпусі UA-GEC)</message>
+      <example correction="Отже">рисутні біблійні чи візантійські сюжети. <marker>Таким чином</marker> , центральний собор Гелаті є типовим при</example>
+      <example>рисутні біблійні чи візантійські сюжети. Отже , центральний собор Гелаті є типовим при</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0001_так_як" name="Калька: так як → оскільки">
+
+      <pattern>
+      <token case_sensitive="no">так</token>
+      <token case_sensitive="no">як</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>оскільки</suggestion> (зустрічається 19× у корпусі UA-GEC)</message>
+      <example correction="оскільки">жахливих обставинах, проте <marker>так як</marker> найкращого детектива було відсторонено в</example>
+      <example>жахливих обставинах, проте оскільки найкращого детектива було відсторонено в</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0002_пару" name="Калька: пару → кілька">
+
+      <antipattern>
+        <token case_sensitive="no">пару</token>
+        <token case_sensitive="no">разів</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">пару</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>кілька</suggestion> (зустрічається 18× у корпусі UA-GEC)</message>
+      <example correction="кілька">т вписано новела про Пінзеля, <marker>пару</marker> замальовок про подорожі Сковороди та при</example>
+      <example>т вписано новела про Пінзеля, кілька замальовок про подорожі Сковороди та при</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0003_дозволяє" name="Калька: дозволяє → дає змогу">
+
+      <antipattern>
+        <token case_sensitive="no">не</token>
+        <token case_sensitive="no">дозволяє</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">дозволяє</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>дає змогу</suggestion> (зустрічається 12× у корпусі UA-GEC)</message>
+      <example correction="дає змогу">цевих органів самоврядування безкоштовно <marker>дозволяє</marker> вирішити</example>
+      <example>цевих органів самоврядування безкоштовно дає змогу вирішити</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0004_в_цілому" name="Калька: в цілому → загалом">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">цілому</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>загалом</suggestion> (зустрічається 12× у корпусі UA-GEC)</message>
+      <example correction="загалом">ні, просто у нас <marker>в цілому</marker> в суспільстві не прийнято думати.</example>
+      <example>ні, просто у нас загалом в суспільстві не прийнято думати.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0005_доктор" name="Калька: доктор → лікар">
+
+      <antipattern>
+        <token case_sensitive="no">доктор</token>
+        <token case_sensitive="no">наук</token>
+      </antipattern>
+      <antipattern>
+        <token case_sensitive="no">доктора</token>
+        <token case_sensitive="no">наук</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">доктор</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>лікар</suggestion> Також: <suggestion>лікарю</suggestion>. (зустрічається 12× у корпусі UA-GEC)</message>
+      <example correction="лікар">я теж піду. Я знаю це вже три дні. Хіба <marker>доктор</marker> тобі не сказав?&quot; - О, я ніко</example>
+      <example>я теж піду. Я знаю це вже три дні. Хіба лікар тобі не сказав?&quot; - О, я ніко</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0006_буфетчик" name="Калька: Буфетчик → Буфетник">
+
+      <pattern>
+      <token case_sensitive="no">Буфетчик</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Буфетник</suggestion> (зустрічається 12× у корпусі UA-GEC)</message>
+      <example correction="Буфетник"><marker>Буфетчик</marker> повільно піднявся,</example>
+      <example>Буфетник повільно піднявся,</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0008_докторе" name="Калька: докторе → лікарю">
+
+      <pattern>
+      <token case_sensitive="no">докторе</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>лікарю</suggestion> (зустрічається 11× у корпусі UA-GEC)</message>
+      <example correction="лікарю">а та вікнами будинку. - Ну, <marker>докторе</marker> , - сказав Найт, не маючи змог</example>
+      <example>а та вікнами будинку. - Ну, лікарю , - сказав Найт, не маючи змог</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0009_задачі" name="Калька: задачі → завдання">
+
+      <pattern>
+      <token case_sensitive="no">задачі</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>завдання</suggestion> (зустрічається 9× у корпусі UA-GEC)</message>
+      <example correction="завдання">більшості стало цікавіше робити домашні <marker>задачі</marker> , оскільки були задачі на їхніх реальних</example>
+      <example>більшості стало цікавіше робити домашні завдання , оскільки були задачі на їхніх реальних</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0010_даний" name="Калька: даний → цей">
+
+      <pattern>
+      <token case_sensitive="no">даний</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>цей</suggestion> (зустрічається 9× у корпусі UA-GEC)</message>
+      <example correction="цей">ивості зрозуміти, наскільки пріоритетний <marker>даний</marker> заклад для претендента, а у претендента</example>
+      <example>ивості зрозуміти, наскільки пріоритетний цей заклад для претендента, а у претендента</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0011_наступні" name="Калька: наступні → такі">
+
+      <pattern>
+      <token case_sensitive="no">наступні</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>такі</suggestion> (зустрічається 8× у корпусі UA-GEC)</message>
+      <example correction="такі">компанії. Висновки були <marker>наступні</marker> - нам потрібна автоматизація:</example>
+      <example>компанії. Висновки були такі - нам потрібна автоматизація:</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0012_вірно" name="Калька: вірно → правильно">
+
+      <antipattern>
+        <token case_sensitive="no">вірно</token>
+        <token case_sensitive="no">вказано</token>
+      </antipattern>
+      <antipattern>
+        <token case_sensitive="no">вірно</token>
+        <token case_sensitive="no">зазначено</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">вірно</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>правильно</suggestion> (зустрічається 8× у корпусі UA-GEC)</message>
+      <example correction="правильно">ієї чи іншої спільноти. Щодо зазначеного <marker>вірно</marker> висловився Віктор Гюго (1802-1855, франц</example>
+      <example>ієї чи іншої спільноти. Щодо зазначеного правильно висловився Віктор Гюго (1802-1855, франц</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0013_даній" name="Калька: даній → цій">
+
+      <pattern>
+      <token case_sensitive="no">даній</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>цій</suggestion> (зустрічається 8× у корпусі UA-GEC)</message>
+      <example correction="цій">ливих експериментальних даних. В <marker>даній</marker> роботі було досліджено енергети</example>
+      <example>ливих експериментальних даних. В цій роботі було досліджено енергети</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0014_задача" name="Калька: задача → завдання">
+
+      <pattern>
+      <token case_sensitive="no">задача</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>завдання</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="завдання">ь побудовою математичної моделі явища, а <marker>задача</marker> експерименту полягала</example>
+      <example>ь побудовою математичної моделі явища, а завдання експерименту полягала</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0015_відправився" name="Калька: відправився → вирушив">
+
+      <pattern>
+      <token case_sensitive="no">відправився</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>вирушив</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="вирушив">асосна подача кисню і спирту. І тоді він <marker>відправився</marker> на німецьку</example>
+      <example>асосна подача кисню і спирту. І тоді він вирушив на німецьку</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0016_гусь" name="Калька: гусь → гусак">
+
+      <pattern>
+      <token case_sensitive="no">гусь</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>гусак</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="гусак">е не записував, лише, витягнувши шию, як <marker>гусь</marker> , намагався не вимовити ні слова.</example>
+      <example>е не записував, лише, витягнувши шию, як гусак , намагався не вимовити ні слова.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0017_гуся" name="Калька: гуся → гусака">
+
+      <pattern>
+      <token case_sensitive="no">гуся</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>гусака</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="гусака">до нього і з жахом дивились на <marker>гуся</marker> . — Бідний Ваан Іванович! — г</example>
+      <example>до нього і з жахом дивились на гусака . — Бідний Ваан Іванович! — г</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0018_шляпу" name="Калька: шляпу → капелюха">
+
+      <pattern>
+      <token case_sensitive="no">шляпу</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>капелюха</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="капелюха">свою <marker>шляпу</marker> і ходімо. Я гарантую, що за</example>
+      <example>свою капелюха і ходімо. Я гарантую, що за</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0019_в_першу_чергу" name="Калька: в першу чергу → передусім">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">першу</token>
+      <token case_sensitive="no">чергу</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>передусім</suggestion> Також: <suggestion>насамперед</suggestion>. (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="передусім">Тож говорячи про світ, ми маємо на увазі <marker>в першу чергу</marker> самих себе – людство. Знищенн</example>
+      <example>Тож говорячи про світ, ми маємо на увазі передусім самих себе – людство. Знищенн</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0020_фоні" name="Калька: фоні → тлі">
+
+      <pattern>
+      <token case_sensitive="no">фоні</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>тлі</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="тлі">, роздивився ледь не кожного! На їхньому <marker>фоні</marker> наш прикид здавався вбогим. За дверима н</example>
+      <example>, роздивився ледь не кожного! На їхньому тлі наш прикид здавався вбогим. За дверима н</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0021_передній" name="Калька: передній → передпокої">
+
+      <antipattern>
+        <token case_sensitive="no">передній</token>
+        <token case_sensitive="no">частині</token>
+      </antipattern>
+      <antipattern>
+        <token case_sensitive="no">передній</token>
+        <token case_sensitive="no">план</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">передній</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>передпокої</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="передпокої">зараз же проклятий перекладач опинився в <marker>передній</marker> , навертів там номер і почав</example>
+      <example>зараз же проклятий перекладач опинився в передпокої , навертів там номер і почав</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0022_співпадають" name="Калька: співпадають → збігаються">
+
+      <pattern>
+      <token case_sensitive="no">співпадають</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>збігаються</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="збігаються">одна одиниця). Як бачите число і опис не <marker>співпадають</marker> . Але іноді, дуже рідко,</example>
+      <example>одна одиниця). Як бачите число і опис не збігаються . Але іноді, дуже рідко,</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0023_даному" name="Калька: даному → цьому">
+
+      <pattern>
+      <token case_sensitive="no">даному</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>цьому</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="цьому">яких має свою специфіку та недоліки. На <marker>даному</marker> етапі молекулярна динаміка покриває часи</example>
+      <example>яких має свою специфіку та недоліки. На цьому етапі молекулярна динаміка покриває часи</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0024_значить" name="Калька: значить → отже">
+
+      <antipattern>
+        <token>,</token>
+        <token case_sensitive="no">значить</token>
+        <token>,</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">значить</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>отже</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="отже">ках змінюємо тиск пального, а <marker>значить</marker> і його подачу в КЗ і таким чи</example>
+      <example>ках змінюємо тиск пального, а отже і його подачу в КЗ і таким чи</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0025_задач" name="Калька: задач → завдань">
+
+      <pattern>
+      <token case_sensitive="no">задач</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>завдань</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="завдань">та технології створення таких систем. До <marker>задач</marker> комп’ютерного зору належать розпізнаванн</example>
+      <example>та технології створення таких систем. До завдань комп’ютерного зору належать розпізнаванн</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0026_бормотати" name="Калька: бормотати → бурмотіти">
+
+      <pattern>
+      <token case_sensitive="no">бормотати</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>бурмотіти</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="бурмотіти">уги ,обійняв Маргариту і почав <marker>бормотати</marker> : Бідна, бідна</example>
+      <example>уги ,обійняв Маргариту і почав бурмотіти : Бідна, бідна</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0027_робив_вигляд" name="Калька: робив вигляд → вдавав">
+
+      <pattern>
+      <token case_sensitive="no">робив</token>
+      <token case_sensitive="no">вигляд</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>вдавав</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="вдавав">хто не повірив - той боявся і <marker>робив вигляд</marker> що так і було.</example>
+      <example>хто не повірив - той боявся і вдавав що так і було.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0028_прийшлось" name="Калька: прийшлось → довелося">
+
+      <pattern>
+      <token case_sensitive="no">прийшлось</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>довелося</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="довелося">роз відступив та піднялось сонце, <marker>прийшлось</marker> їхати додому ні з чим. Наступного дня ми</example>
+      <example>роз відступив та піднялось сонце, довелося їхати додому ні з чим. Наступного дня ми</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0029_іншої_сторони" name="Калька: іншої сторони → іншого боку">
+
+      <pattern>
+      <token case_sensitive="no">іншої</token>
+      <token case_sensitive="no">сторони</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>іншого боку</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="іншого боку">о легше! Казкові, просто казкові люди! З <marker>іншої сторони</marker> , якщо ти розумієш необхідність статично</example>
+      <example>о легше! Казкові, просто казкові люди! З іншого боку , якщо ти розумієш необхідність статично</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0030_як_тільки" name="Калька: Як тільки → Щойно">
+
+      <pattern>
+      <token case_sensitive="no">Як</token>
+      <token case_sensitive="no">тільки</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Щойно</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="Щойно">снують. Коли-небудь я зможу це пояснити. <marker>Як тільки</marker> зрозумію, як працює катарсис. Окрім усьо</example>
+      <example>снують. Коли-небудь я зможу це пояснити. Щойно зрозумію, як працює катарсис. Окрім усьо</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0031_однієї_сторони" name="Калька: однієї сторони → одного боку">
+
+      <pattern>
+      <token case_sensitive="no">однієї</token>
+      <token case_sensitive="no">сторони</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>одного боку</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="одного боку">сценарно робота виконана дуже нерівно. З <marker>однієї сторони</marker> , повно кліше: “місто разючих контрастів</example>
+      <example>сценарно робота виконана дуже нерівно. З одного боку , повно кліше: “місто разючих контрастів</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0032_свою_сторону" name="Калька: свою сторону → свій бік">
+
+      <pattern>
+      <token case_sensitive="no">свою</token>
+      <token case_sensitive="no">сторону</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>свій бік</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="свій бік">зрозуміти й “перетягнути” батьків на <marker>свою сторону</marker> переповнювала дитину</example>
+      <example>зрозуміти й “перетягнути” батьків на свій бік переповнювала дитину</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0033_справа_в" name="Калька: Справа в → Річ у">
+
+      <pattern>
+      <token case_sensitive="no">Справа</token>
+      <token case_sensitive="no">в</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Річ у</suggestion> Також: <suggestion>Річ</suggestion>. (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="Річ у">плі для створення ринку донорства нирок. <marker>Справа в</marker> тому, що є два типи донорства нирки: зви</example>
+      <example>плі для створення ринку донорства нирок. Річ у тому, що є два типи донорства нирки: зви</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0034_наступним_чином" name="Калька: наступним чином → так">
+
+      <pattern>
+      <token case_sensitive="no">наступним</token>
+      <token case_sensitive="no">чином</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>так</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="так">Виготовлення такої установки відбувалось <marker>наступним чином</marker> : спочатку на підкладці з оксиду кремнію</example>
+      <example>Виготовлення такої установки відбувалось так : спочатку на підкладці з оксиду кремнію</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0035_в_тому_числі" name="Калька: в тому числі → зокрема">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">тому</token>
+      <token case_sensitive="no">числі</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>зокрема</suggestion> Також: <suggestion>зокрема і</suggestion>. (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="зокрема">вправляння мізків за порушення правил, <marker>в тому числі</marker> з освітленням велосипеда.</example>
+      <example>вправляння мізків за порушення правил, зокрема з освітленням велосипеда.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0036_роблячи_вигляд" name="Калька: роблячи вигляд → вдаючи">
+
+      <pattern>
+      <token case_sensitive="no">роблячи</token>
+      <token case_sensitive="no">вигляд</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>вдаючи</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="вдаючи">ав він весело, заходячи в кімнату тещі і <marker>роблячи вигляд</marker> , ніби не помічає заплаканих,</example>
+      <example>ав він весело, заходячи в кімнату тещі і вдаючи , ніби не помічає заплаканих,</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0037_як_би" name="Калька: як би → наче">
+
+      <pattern>
+      <token case_sensitive="no">як</token>
+      <token case_sensitive="no">би</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>наче</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="наче">Був!- відповідає він <marker>як би</marker> неохоче -</example>
+      <example>Був!- відповідає він наче неохоче -</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0038_стало_бути" name="Калька: Стало бути → Виходить">
+
+      <pattern>
+      <token case_sensitive="no">Стало</token>
+      <token case_sensitive="no">бути</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Виходить</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="Виходить">ав фармацевта, зітхнув і пішов додому. &quot; <marker>Стало бути</marker> , судилося померти!&quot; - думав в</example>
+      <example>ав фармацевта, зітхнув і пішов додому. &quot; Виходить , судилося померти!&quot; - думав в</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0039_скоріше_за_все" name="Калька: скоріше за все → найімовірніше">
+
+      <pattern>
+      <token case_sensitive="no">скоріше</token>
+      <token case_sensitive="no">за</token>
+      <token case_sensitive="no">все</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>найімовірніше</suggestion></message>
+      <example correction="найімовірніше">автоматизації тестування. Про це, <marker>скоріше за все</marker> , розповім вже в наступній статті!</example>
+      <example>автоматизації тестування. Про це, найімовірніше , розповім вже в наступній статті!</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0040_вести_себе" name="Калька: вести себе → поводитися">
+
+      <pattern>
+      <token case_sensitive="no">вести</token>
+      <token case_sensitive="no">себе</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>поводитися</suggestion></message>
+      <example correction="поводитися">в свіжі сорочки та наказала їм <marker>вести себе</marker> в присутності пана як належить.</example>
+      <example>в свіжі сорочки та наказала їм поводитися в присутності пана як належить.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0041_в_принципі" name="Калька: В принципі, → Загалом">
+
+      <pattern>
+      <token case_sensitive="no">В</token>
+      <token case_sensitive="no">принципі,</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Загалом</suggestion></message>
+      <example correction="Загалом">енджер працює поверх неї. <marker>В принципі,</marker> стандартний набір: текстові повідомлення</example>
+      <example>енджер працює поверх неї. Загалом стандартний набір: текстові повідомлення</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0042_таким_чином" name="Калька: Таким чином, → Отже,">
+
+      <pattern>
+      <token case_sensitive="no">Таким</token>
+      <token case_sensitive="no">чином,</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Отже,</suggestion></message>
+      <example correction="Отже,">и можете робити як захочете&quot;. <marker>Таким чином,</marker> всі інші учасники проінформовані про так</example>
+      <example>и можете робити як захочете&quot;. Отже, всі інші учасники проінформовані про так</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0043_в_першу_чергу" name="Калька: в першу чергу, → передусім">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">першу</token>
+      <token case_sensitive="no">чергу,</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>передусім</suggestion></message>
+      <example correction="передусім">життя святої Параскеви. Тому, <marker>в першу чергу,</marker> слід ознайомитись з її житієм. Параскева</example>
+      <example>життя святої Параскеви. Тому, передусім слід ознайомитись з її житієм. Параскева</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0044_у_якості" name="Калька: у якості → як">
+
+      <pattern>
+      <token case_sensitive="no">у</token>
+      <token case_sensitive="no">якості</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>як</suggestion></message>
+      <example correction="як">е які речовини використовують <marker>у якості</marker> пального для РРД</example>
+      <example>е які речовини використовують як пального для РРД</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0045_в_принципі" name="Калька: В принципі → Загалом">
+
+      <pattern>
+      <token case_sensitive="no">В</token>
+      <token case_sensitive="no">принципі</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Загалом</suggestion></message>
+      <example correction="Загалом">ки не зупинився на позначці -3 діоптрії. <marker>В принципі</marker> , на фоні інших ще дуже і дуже</example>
+      <example>ки не зупинився на позначці -3 діоптрії. Загалом , на фоні інших ще дуже і дуже</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0046_свого_роду" name="Калька: свого роду → своєрідний">
+
+      <pattern>
+      <token case_sensitive="no">свого</token>
+      <token case_sensitive="no">роду</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>своєрідний</suggestion> Також: <suggestion>своєрідним</suggestion>.</message>
+      <example correction="своєрідний">зв&apos;язку - <marker>свого роду</marker> гібрид радіопередавача і велосипеда: фер</example>
+      <example>зв&apos;язку - своєрідний гібрид радіопередавача і велосипеда: фер</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0047_тим_не_менш" name="Калька: тим не менш → а проте">
+
+      <pattern>
+      <token case_sensitive="no">тим</token>
+      <token case_sensitive="no">не</token>
+      <token case_sensitive="no">менш</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>а проте</suggestion> Також: <suggestion>Хай там як</suggestion>.</message>
+      <example correction="а проте">немов постарівшим; <marker>тим не менш</marker> обличчя не мало жодних зморшок та навіть</example>
+      <example>немов постарівшим; а проте обличчя не мало жодних зморшок та навіть</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0048_у_цілому" name="Калька: у цілому → загалом">
+
+      <pattern>
+      <token case_sensitive="no">у</token>
+      <token case_sensitive="no">цілому</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>загалом</suggestion></message>
+      <example correction="загалом">ене гроші. То були важкі часи для країни <marker>у цілому</marker> та для нашої сім’ї зокрема. Але</example>
+      <example>ене гроші. То були важкі часи для країни загалом та для нашої сім’ї зокрема. Але</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0049_в_сторону" name="Калька: в сторону → у напрямку">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">сторону</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>у бік</suggestion> Також: <suggestion>у напрямку</suggestion>, <suggestion>до</suggestion>.</message>
+      <example correction="у бік">тий автобус і їдемо. Зазвичай, <marker>в сторону</marker> Виставкового центру. І ось, що</example>
+      <example>тий автобус і їдемо. Зазвичай, у напрямку Виставкового центру. І ось, що</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0050_в_свою_чергу" name="Калька: В свою чергу → Своєю чергою">
+
+      <pattern>
+      <token case_sensitive="no">В</token>
+      <token case_sensitive="no">свою</token>
+      <token case_sensitive="no">чергу</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Своєю чергою</suggestion></message>
+      <example correction="Своєю чергою">ури, на якій програма буде виконуватися. <marker>В свою чергу</marker> , це дозволяє повторно ви</example>
+      <example>ури, на якій програма буде виконуватися. Своєю чергою , це дозволяє повторно ви</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0051_мається_на_увазі" name="Калька: мається на увазі → йдеться про">
+
+      <pattern>
+      <token case_sensitive="no">мається</token>
+      <token case_sensitive="no">на</token>
+      <token case_sensitive="no">увазі</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>йдеться про</suggestion></message>
+      <example correction="йдеться про">ікаву статтю про життя без дебагера. Тут <marker>мається на увазі</marker> , щось на кшталт gdb, що дозвол</example>
+      <example>ікаву статтю про життя без дебагера. Тут йдеться про , щось на кшталт gdb, що дозвол</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0052_в_залежності" name="Калька: в залежності → залежно">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">залежності</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>залежно</suggestion></message>
+      <example correction="залежно">тором. Життя змінилося або не змінилося, <marker>в залежності</marker> від фаху, стилю життя, натури, наявності</example>
+      <example>тором. Життя змінилося або не змінилося, залежно від фаху, стилю життя, натури, наявності</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0053_більше_того" name="Калька: Більше того → Ба більше">
+
+      <pattern>
+      <token case_sensitive="no">Більше</token>
+      <token case_sensitive="no">того</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>Ба більше</suggestion></message>
+      <example correction="Ба більше">чала реально усвідомлювати та сприймати. <marker>Більше того</marker> , старатись керувати цим темпом, дозволи</example>
+      <example>чала реально усвідомлювати та сприймати. Ба більше , старатись керувати цим темпом, дозволи</example>
+    </rule>
+
+    <rule id="UA_GEC_F_CALQUE_0054_аж_зовсім_темніше_тучі" name="Калька: аж зовсім темніше тучі → темнішим за хмару">
+
+      <pattern>
+      <token case_sensitive="no">аж</token>
+      <token case_sensitive="no">зовсім</token>
+      <token case_sensitive="no">темніше</token>
+      <token case_sensitive="no">тучі</token>
+      </pattern>
+      <message>Ймовірна калька з іншої мови. Краще: <suggestion>темнішим за хмару</suggestion></message>
+      <example correction="темнішим за хмару">ндиректора чомусь перетрусило, і, ставши <marker>аж зовсім темніше тучі</marker> , він відправився за куліси,</example>
+      <example>ндиректора чомусь перетрусило, і, ставши темнішим за хмару , він відправився за куліси,</example>
+    </rule>
+  </category>
+
+  <category id="UA_GEC_COLLOCATION" name="Сполучуваність (UA-GEC)" type="style">
+
+    <rule id="UA_GEC_F_COLLOCATION_0000_знаходиться" name="Сполучуваність: знаходиться → перебуває">
+
+      <antipattern>
+        <token case_sensitive="no">знаходиться</token>
+        <token case_sensitive="no">під</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">знаходиться</token>
+      </pattern>
+      <message>Неприродне словосполучення. Краще: <suggestion>перебуває</suggestion> Також: <suggestion>розташований</suggestion>. (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="перебуває">Ізраїлю 3-го жовтня 2020. Наразі Ізраїль <marker>знаходиться</marker> в червоній зоні для України, тобто за</example>
+      <example>Ізраїлю 3-го жовтня 2020. Наразі Ізраїль перебуває в червоній зоні для України, тобто за</example>
+    </rule>
+
+    <rule id="UA_GEC_F_COLLOCATION_0001_пройшла" name="Сполучуваність: Пройшла → Минула">
+
+      <antipattern>
+        <token case_sensitive="no">Пройшла</token>
+        <token case_sensitive="no" regexp="yes">іспит|тест|перевірку</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">Пройшла</token>
+      </pattern>
+      <message>Неприродне словосполучення. Краще: <suggestion>Минула</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="Минула">у нас називаються безквиткові пасажири. <marker>Пройшла</marker> ще хвилина мовчання. Стичкін піднявся та</example>
+      <example>у нас називаються безквиткові пасажири. Минула ще хвилина мовчання. Стичкін піднявся та</example>
+    </rule>
+
+    <rule id="UA_GEC_F_COLLOCATION_0002_знаходяться" name="Сполучуваність: знаходяться → перебувають">
+
+      <pattern>
+      <token case_sensitive="no">знаходяться</token>
+      </pattern>
+      <message>Неприродне словосполучення. Краще: <suggestion>перебувають</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="перебувають">ському Соборі”, ”Вознесіння Хреста”, які <marker>знаходяться</marker> в нартексі. На протилежній, схі</example>
+      <example>ському Соборі”, ”Вознесіння Хреста”, які перебувають в нартексі. На протилежній, схі</example>
+    </rule>
+
+    <rule id="UA_GEC_F_COLLOCATION_0003_пройшло" name="Сполучуваність: пройшло → минуло">
+
+      <pattern>
+      <token case_sensitive="no">пройшло</token>
+      </pattern>
+      <message>Неприродне словосполучення. Краще: <suggestion>минуло</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="минуло">. Стаття опублікована не в журанлі (часу <marker>пройшло</marker> дуже мало ще — а інфа критична), але отр</example>
+      <example>. Стаття опублікована не в журанлі (часу минуло дуже мало ще — а інфа критична), але отр</example>
+    </rule>
+
+    <rule id="UA_GEC_F_COLLOCATION_0004_проходить" name="Сполучуваність: проходить → минає">
+
+      <antipattern>
+        <token case_sensitive="no">проходить</token>
+        <token case_sensitive="no" regexp="yes">тест|іспит|перевірку</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">проходить</token>
+      </pattern>
+      <message>Неприродне словосполучення. Краще: <suggestion>минає</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="минає">у будь-якій галузі. Час енциклопедистів <marker>проходить</marker> , настає час</example>
+      <example>у будь-якій галузі. Час енциклопедистів минає , настає час</example>
+    </rule>
+
+    <rule id="UA_GEC_F_COLLOCATION_0005_відкрив" name="Сполучуваність: відкрив → відчинив">
+
+      <pattern>
+      <token case_sensitive="no">відкрив</token>
+      </pattern>
+      <message>Неприродне словосполучення. Краще: <suggestion>відчинив</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="відчинив">я пана тіло можу бачити... Потім встав і <marker>відкрив</marker> кватирку, а зрештою і вікно. Свіже врані</example>
+      <example>я пана тіло можу бачити... Потім встав і відчинив кватирку, а зрештою і вікно. Свіже врані</example>
+    </rule>
+  </category>
+
+  <category id="UA_GEC_POORFLOW" name="Плавність (UA-GEC)" type="style">
+
+    <rule id="UA_GEC_F_POORFLOW_0001_так_що" name="Плавність: так що → тож">
+
+      <pattern>
+      <token case_sensitive="no">так</token>
+      <token case_sensitive="no">що</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>тож</suggestion> (зустрічається 11× у корпусі UA-GEC)</message>
+      <example correction="тож">термінологію і факти з неї, <marker>так що</marker> якщо ви її не читали -- прочи</example>
+      <example>термінологію і факти з неї, тож якщо ви її не читали -- прочи</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0002_в_той_час" name="Плавність: в той час → тоді">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">той</token>
+      <token case_sensitive="no">час</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>тоді</suggestion> Також: <suggestion>водночас</suggestion>. (зустрічається 8× у корпусі UA-GEC)</message>
+      <example correction="тоді">ть лишиться на тому ж рівні, <marker>в той час</marker> як ризик втрати грошей зменшиться. NOTE:</example>
+      <example>ть лишиться на тому ж рівні, тоді як ризик втрати грошей зменшиться. NOTE:</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0003_кожного_дня" name="Плавність: кожного дня → щодня">
+
+      <pattern>
+      <token case_sensitive="no">кожного</token>
+      <token case_sensitive="no">дня</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>щодня</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="щодня">m-блог, в якому б я честно та системно ( <marker>кожного дня</marker> ) ділився враженнями про життя у Франції</example>
+      <example>m-блог, в якому б я честно та системно ( щодня ) ділився враженнями про життя у Франції</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0007_в_той_час" name="Плавність: в той час, → тоді">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">той</token>
+      <token case_sensitive="no">час,</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>тоді</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="тоді">асоціюються з позатілесним сприйняттям, <marker>в той час,</marker> як у свідомому сновидіння значно частіше</example>
+      <example>асоціюються з позатілесним сприйняттям, тоді як у свідомому сновидіння значно частіше</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0008_перш_за_все" name="Плавність: Перш за все → Насамперед">
+
+      <pattern>
+      <token case_sensitive="no">Перш</token>
+      <token case_sensitive="no">за</token>
+      <token case_sensitive="no">все</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Насамперед</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="Насамперед">а, про яку я бажаю розповісти. <marker>Перш за все</marker> , варто зауважити</example>
+      <example>а, про яку я бажаю розповісти. Насамперед , варто зауважити</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0009_з_метою" name="Плавність: з метою → , щоб">
+
+      <pattern>
+      <token case_sensitive="no">з</token>
+      <token case_sensitive="no">метою</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>, щоб</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction=", щоб">ути кращим за свого близнюка <marker>з метою</marker> здобути любов, якої так не вистачало. Пр</example>
+      <example>ути кращим за свого близнюка , щоб здобути любов, якої так не вистачало. Пр</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0010_мова_йде" name="Плавність: мова йде → йдеться">
+
+      <pattern>
+      <token case_sensitive="no">мова</token>
+      <token case_sensitive="no">йде</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>йдеться</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="йдеться">що не прореагувала. В нашому випадку <marker>мова йде</marker> про реакцію окислення</example>
+      <example>що не прореагувала. В нашому випадку йдеться про реакцію окислення</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0014_відчувати_себе" name="Плавність: відчувати себе → почуватися">
+
+      <pattern>
+      <token case_sensitive="no">відчувати</token>
+      <token case_sensitive="no">себе</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>почуватися</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="почуватися">жені на такому результаті, як «Я повинен <marker>відчувати себе</marker> щасливим», ви можете</example>
+      <example>жені на такому результаті, як «Я повинен почуватися щасливим», ви можете</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0015_як_правило" name="Плавність: як правило → зазвичай">
+
+      <pattern>
+      <token case_sensitive="no">як</token>
+      <token case_sensitive="no">правило</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>зазвичай</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="зазвичай">товують тікери. Тікер — це абревіатура ( <marker>як правило</marker> , до 4 прописних букв), що</example>
+      <example>товують тікери. Тікер — це абревіатура ( зазвичай , до 4 прописних букв), що</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0016_доброго_дня" name="Плавність: Доброго дня → Добрий день">
+
+      <pattern>
+      <token case_sensitive="no">Доброго</token>
+      <token case_sensitive="no">дня</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Добрий день</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="Добрий день"><marker>Доброго дня</marker> ! Я пишу вам з приводу п</example>
+      <example>Добрий день ! Я пишу вам з приводу п</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0017_кожен_день" name="Плавність: кожен день → щодня">
+
+      <pattern>
+      <token case_sensitive="no">кожен</token>
+      <token case_sensitive="no">день</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>щодня</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="щодня">ле як змусити себе займатися французькою <marker>кожен день</marker> ? Особливо письмом? Мені завжди було цік</example>
+      <example>ле як змусити себе займатися французькою щодня ? Особливо письмом? Мені завжди було цік</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0018_сьогоднішній_день" name="Плавність: сьогоднішній день → сьогодні">
+
+      <pattern>
+      <token case_sensitive="no">сьогоднішній</token>
+      <token case_sensitive="no">день</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>сьогодні</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="сьогодні">кою не зробить навколишнє середовище. На <marker>сьогоднішній день</marker> відомо багато випадків, коли людина із о</example>
+      <example>кою не зробить навколишнє середовище. На сьогодні відомо багато випадків, коли людина із о</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0019_таких_як" name="Плавність: таких як → як-от">
+
+      <pattern>
+      <token case_sensitive="no">таких</token>
+      <token case_sensitive="no">як</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>як-от</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="як-от">ати вони могли лише на невеликих звірів, <marker>таких як</marker> зайці, білки та пташки. А ще ж треба бул</example>
+      <example>ати вони могли лише на невеликих звірів, як-от зайці, білки та пташки. А ще ж треба бул</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0020_в_процесі" name="Плавність: в процесі → під час">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">процесі</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>під час</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="під час">ння чим послуговується слухач <marker>в процесі</marker> усунення неоднозначності висловлення та</example>
+      <example>ння чим послуговується слухач під час усунення неоднозначності висловлення та</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0021_точки_зору" name="Плавність: точки зору → погляду">
+
+      <pattern>
+      <token case_sensitive="no">точки</token>
+      <token case_sensitive="no">зору</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>погляду</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="погляду">як ви розумієте дуже погано з <marker>точки зору</marker> маси корисного навантаження. Оптимізацій</example>
+      <example>як ви розумієте дуже погано з погляду маси корисного навантаження. Оптимізацій</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0022_я_думаю" name="Плавність: Я думаю → Гадаю">
+
+      <pattern>
+      <token case_sensitive="no">Я</token>
+      <token case_sensitive="no">думаю</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Гадаю</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="Гадаю">відями, менторством, різними програмами. <marker>Я думаю</marker> , що якщо мене</example>
+      <example>відями, менторством, різними програмами. Гадаю , що якщо мене</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0023_якщо_б" name="Плавність: якщо б → якби">
+
+      <pattern>
+      <token case_sensitive="no">якщо</token>
+      <token case_sensitive="no">б</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>якби</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="якби">ні, ми спішимо і навіть <marker>якщо б</marker> ми були голодні</example>
+      <example>ні, ми спішимо і навіть якби ми були голодні</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0025_на_цей_раз" name="Плавність: на цей раз → цього разу">
+
+      <pattern>
+      <token case_sensitive="no">на</token>
+      <token case_sensitive="no">цей</token>
+      <token case_sensitive="no">раз</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>цього разу</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="цього разу">о Абогін, і його лице знову застрибало і <marker>на цей раз</marker> вже ясно від гніву.</example>
+      <example>о Абогін, і його лице знову застрибало і цього разу вже ясно від гніву.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0026_в_цю_ніч" name="Плавність: в цю ніч → цієї ночі">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">цю</token>
+      <token case_sensitive="no">ніч</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>цієї ночі</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="цієї ночі">дивно припасованим. «Двадцять років тому <marker>в цю ніч</marker> , - сказав чоловік,</example>
+      <example>дивно припасованим. «Двадцять років тому цієї ночі , - сказав чоловік,</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0028_кожного_разу" name="Плавність: кожного разу → щоразу">
+
+      <pattern>
+      <token case_sensitive="no">кожного</token>
+      <token case_sensitive="no">разу</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>щоразу</suggestion></message>
+      <example correction="щоразу">мій запис. Помилок було дуже багато, але <marker>кожного разу</marker> їх було все менше</example>
+      <example>мій запис. Помилок було дуже багато, але щоразу їх було все менше</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0029_в_кінці" name="Плавність: В кінці → Наприкінці">
+
+      <pattern>
+      <token case_sensitive="no">В</token>
+      <token case_sensitive="no">кінці</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Наприкінці</suggestion></message>
+      <example correction="Наприкінці">навчання). <marker>В кінці</marker> давалась “курсова” робота</example>
+      <example>навчання). Наприкінці давалась “курсова” робота</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0030_перш_за_все" name="Плавність: Перш за все, → Насамперед">
+
+      <pattern>
+      <token case_sensitive="no">Перш</token>
+      <token case_sensitive="no">за</token>
+      <token case_sensitive="no">все,</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Насамперед</suggestion> Також: <suggestion>Передусім</suggestion>.</message>
+      <example correction="Насамперед">Слід звернути увагу на барабан споруди. <marker>Перш за все,</marker> його наявність разом з куполом</example>
+      <example>Слід звернути увагу на барабан споруди. Насамперед його наявність разом з куполом</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0033_велика_кількість" name="Плавність: велика кількість → багато">
+
+      <pattern>
+      <token case_sensitive="no">велика</token>
+      <token case_sensitive="no">кількість</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>багато</suggestion></message>
+      <example correction="багато">двері в кімнату Івана, і до неї увійшло <marker>велика кількість</marker> людей у білих халатах. Попереду йшов рет</example>
+      <example>двері в кімнату Івана, і до неї увійшло багато людей у білих халатах. Попереду йшов рет</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0034_йде_мова" name="Плавність: йде мова → йдеться">
+
+      <pattern>
+      <token case_sensitive="no">йде</token>
+      <token case_sensitive="no">мова</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>йдеться</suggestion></message>
+      <example correction="йдеться">чого ж стосується? Чи <marker>йде мова</marker> про формування духу &quot;Geschäftsmann&quot; у хл</example>
+      <example>чого ж стосується? Чи йдеться про формування духу &quot;Geschäftsmann&quot; у хл</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0035_його_самолюбство" name="Плавність: його самолюбство → чиє самолюбство">
+
+      <pattern>
+      <token case_sensitive="no">його</token>
+      <token case_sensitive="no">самолюбство</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>чиє самолюбство</suggestion></message>
+      <example correction="чиє самолюбство">за руки. Чоловік із Заходу, <marker>його самолюбство</marker> підсилене успіхом, починало о</example>
+      <example>за руки. Чоловік із Заходу, чиє самолюбство підсилене успіхом, починало о</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0036_із_зацікавленням" name="Плавність: із зацікавленням → зацікавлено">
+
+      <pattern>
+      <token case_sensitive="no">із</token>
+      <token case_sensitive="no">зацікавленням</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>зацікавлено</suggestion></message>
+      <example correction="зацікавлено">Другий, <marker>із зацікавленням</marker> слухав. На розі стояла аптека, блискуча</example>
+      <example>Другий, зацікавлено слухав. На розі стояла аптека, блискуча</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0037_кардинально_зворотному" name="Плавність: кардинально зворотному → геть протилежному">
+
+      <pattern>
+      <token case_sensitive="no">кардинально</token>
+      <token case_sensitive="no">зворотному</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>геть протилежному</suggestion></message>
+      <example correction="геть протилежному">жовтих автобусах в напрямку, <marker>кардинально зворотному</marker></example>
+      <example>жовтих автобусах в напрямку, геть протилежному</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0038_в_бік" name="Плавність: в бік → до">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">бік</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>до</suggestion></message>
+      <example correction="до">ок, блимала то тут, то там. Бен повернув <marker>в бік</marker> дівчини голову і прошепотів:</example>
+      <example>ок, блимала то тут, то там. Бен повернув до дівчини голову і прошепотів:</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0039_у_цю_мить" name="Плавність: У цю мить → Цієї миті">
+
+      <pattern>
+      <token case_sensitive="no">У</token>
+      <token case_sensitive="no">цю</token>
+      <token case_sensitive="no">мить</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Цієї миті</suggestion></message>
+      <example correction="Цієї миті">міятися та кричати: &quot;Ми будемо щасливі!&quot; <marker>У цю мить</marker> у келії почулося брязкання зброї та стук</example>
+      <example>міятися та кричати: &quot;Ми будемо щасливі!&quot; Цієї миті у келії почулося брязкання зброї та стук</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0040_більш_того" name="Плавність: Більш того → Ба більше">
+
+      <pattern>
+      <token case_sensitive="no">Більш</token>
+      <token case_sensitive="no">того</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Ба більше</suggestion></message>
+      <example correction="Ба більше">богослужебних книг. <marker>Більш того</marker> , у Хорватії, для цих цілей нею</example>
+      <example>богослужебних книг. Ба більше , у Хорватії, для цих цілей нею</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0041_для_привертання" name="Плавність: Для привертання → Щоб привернути">
+
+      <pattern>
+      <token case_sensitive="no">Для</token>
+      <token case_sensitive="no">привертання</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Щоб привернути</suggestion></message>
+      <example correction="Щоб привернути">оселення на чужій території’. <marker>Для привертання</marker> уваги до приписаного слову</example>
+      <example>оселення на чужій території’. Щоб привернути уваги до приписаного слову</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0042_з_приводу" name="Плавність: з приводу → щодо">
+
+      <pattern>
+      <token case_sensitive="no">з</token>
+      <token case_sensitive="no">приводу</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>щодо</suggestion> Також: <suggestion>Стосовно</suggestion>.</message>
+      <example correction="щодо">у, Джордже. Спочивай з миром. А <marker>з приводу</marker> Ту-154 - розбилися гідні коле</example>
+      <example>у, Джордже. Спочивай з миром. А щодо Ту-154 - розбилися гідні коле</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0043_з_того_часу" name="Плавність: з того часу → відтоді">
+
+      <pattern>
+      <token case_sensitive="no">з</token>
+      <token case_sensitive="no">того</token>
+      <token case_sensitive="no">часу</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>відтоді</suggestion></message>
+      <example correction="відтоді">загартувалась їхня дружба, і не пускали <marker>з того часу</marker> в свій гурт нікого «ч</example>
+      <example>загартувалась їхня дружба, і не пускали відтоді в свій гурт нікого «ч</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0044_у_сторону" name="Плавність: у сторону → до">
+
+      <pattern>
+      <token case_sensitive="no">у</token>
+      <token case_sensitive="no">сторону</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>до</suggestion></message>
+      <example correction="до">пальцями він махав <marker>у сторону</marker> Римського, шипів і чмокав,</example>
+      <example>пальцями він махав до Римського, шипів і чмокав,</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0045_у_тому_числі" name="Плавність: у тому числі → зокрема">
+
+      <pattern>
+      <token case_sensitive="no">у</token>
+      <token case_sensitive="no">тому</token>
+      <token case_sensitive="no">числі</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>зокрема</suggestion></message>
+      <example correction="зокрема">і для фільмів <marker>у тому числі</marker> . Держ. Кіно почало збільш</example>
+      <example>і для фільмів зокрема . Держ. Кіно почало збільш</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0046_як_би_там_не_було" name="Плавність: Як би там не було → Хай там як">
+
+      <pattern>
+      <token case_sensitive="no">Як</token>
+      <token case_sensitive="no">би</token>
+      <token case_sensitive="no">там</token>
+      <token case_sensitive="no">не</token>
+      <token case_sensitive="no">було</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Хай там як</suggestion></message>
+      <example correction="Хай там як">- повний контроль над смертю. <marker>Як би там не було</marker> - сьогодні наших знань недост</example>
+      <example>- повний контроль над смертю. Хай там як - сьогодні наших знань недост</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0047_робить_акцент" name="Плавність: робить акцент → акцентує">
+
+      <pattern>
+      <token case_sensitive="no">робить</token>
+      <token case_sensitive="no">акцент</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>акцентує</suggestion></message>
+      <example correction="акцентує">sponses and responsibilities»; ● Конгрес <marker>робить акцент</marker> на таких площинах: предметна і діяльнісн</example>
+      <example>sponses and responsibilities»; ● Конгрес акцентує на таких площинах: предметна і діяльнісн</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0048_в_ту_ж_мить" name="Плавність: В ту ж мить → Тієї ж миті">
+
+      <pattern>
+      <token case_sensitive="no">В</token>
+      <token case_sensitive="no">ту</token>
+      <token case_sensitive="no">ж</token>
+      <token case_sensitive="no">мить</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Тієї ж миті</suggestion></message>
+      <example correction="Тієї ж миті">Азазелло ! <marker>В ту ж мить</marker> зі стелі звалився на підло</example>
+      <example>Азазелло ! Тієї ж миті зі стелі звалився на підло</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0049_у_порівнянні_із" name="Плавність: у порівнянні із → проти">
+
+      <pattern>
+      <token case_sensitive="no">у</token>
+      <token case_sensitive="no">порівнянні</token>
+      <token case_sensitive="no">із</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>проти</suggestion></message>
+      <example correction="проти">що у 2017 році курило 14.9% населення <marker>у порівнянні із</marker> 27% у 1990их роках. Тому на</example>
+      <example>що у 2017 році курило 14.9% населення проти 27% у 1990их роках. Тому на</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0050_з_цього_приводу" name="Плавність: з цього приводу → стосовно цього">
+
+      <pattern>
+      <token case_sensitive="no">з</token>
+      <token case_sensitive="no">цього</token>
+      <token case_sensitive="no">приводу</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>стосовно цього</suggestion></message>
+      <example correction="стосовно цього">дистанційно, 14 серпня поділюся думками <marker>з цього приводу</marker> на регіональній конференції ЕдКемп Стани</example>
+      <example>дистанційно, 14 серпня поділюся думками стосовно цього на регіональній конференції ЕдКемп Стани</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0051_у_3_рази" name="Плавність: у 3 рази → втричі">
+
+      <pattern>
+      <token case_sensitive="no">у</token>
+      <token case_sensitive="no">3</token>
+      <token case_sensitive="no">рази</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>втричі</suggestion></message>
+      <example correction="втричі">анніх і мій час (5:22) майже <marker>у 3 рази</marker> більше</example>
+      <example>анніх і мій час (5:22) майже втричі більше</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0052_велику_кількість" name="Плавність: велику кількість → багато">
+
+      <pattern>
+      <token case_sensitive="no">велику</token>
+      <token case_sensitive="no">кількість</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>багато</suggestion></message>
+      <example correction="багато">красно, проте розуміючи задля чого. Знаю <marker>велику кількість</marker> життєвих історій, навіть є родичі, які п</example>
+      <example>красно, проте розуміючи задля чого. Знаю багато життєвих історій, навіть є родичі, які п</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0053_зробив_під_козирок" name="Плавність: зробив під козирок → козирнув">
+
+      <pattern>
+      <token case_sensitive="no">зробив</token>
+      <token case_sensitive="no">під</token>
+      <token case_sensitive="no">козирок</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>козирнув</suggestion></message>
+      <example correction="козирнув">вшись кучерскої спини і <marker>зробив під козирок</marker> . Коляска покотилася далі.</example>
+      <example>вшись кучерскої спини і козирнув . Коляска покотилася далі.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0054_як" name="Плавність: , як → і">
+
+      <pattern>
+      <token case_sensitive="no">,</token>
+      <token case_sensitive="no">як</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>і</suggestion></message>
+      <example correction="і">х подій • ком’юніті інвесторів <marker>, як</marker> у відкритому</example>
+      <example>х подій • ком’юніті інвесторів і у відкритому</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0055_до_тих_пір" name="Плавність: до тих пір → доти">
+
+      <pattern>
+      <token case_sensitive="no">до</token>
+      <token case_sensitive="no">тих</token>
+      <token case_sensitive="no">пір</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>доти</suggestion></message>
+      <example correction="доти">більше. Вони були добрими до Грейс лише <marker>до тих пір</marker> , поки не зрозуміли, яку</example>
+      <example>більше. Вони були добрими до Грейс лише доти , поки не зрозуміли, яку</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0056_пару_речень" name="Плавність: пару речень → трохи">
+
+      <pattern>
+      <token case_sensitive="no">пару</token>
+      <token case_sensitive="no">речень</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>трохи</suggestion></message>
+      <example correction="трохи">на нашій фейсбук-сторінці :) 1. Розкажи <marker>пару речень</marker> про свій досвід Скоро святкув</example>
+      <example>на нашій фейсбук-сторінці :) 1. Розкажи трохи про свій досвід Скоро святкув</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0057_співбесіда_яка" name="Плавність: Співбесіда, яка → Яка співбесіда">
+
+      <pattern>
+      <token case_sensitive="no">Співбесіда,</token>
+      <token case_sensitive="no">яка</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Яка співбесіда</suggestion></message>
+      <example correction="Яка співбесіда">навіть якось розробляти інтерфейс :) 2. <marker>Співбесіда, яка</marker> тобі найбільше запам’яталась? Це була сп</example>
+      <example>навіть якось розробляти інтерфейс :) 2. Яка співбесіда тобі найбільше запам’яталась? Це була сп</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0058_а_тому" name="Плавність: а тому → тож">
+
+      <pattern>
+      <token case_sensitive="no">а</token>
+      <token case_sensitive="no">тому</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>тож</suggestion></message>
+      <example correction="тож">тужна, надійна, але занадто вже об&apos;ємна, <marker>а тому</marker> і не завжди зручна. У його лівій руці бу</example>
+      <example>тужна, надійна, але занадто вже об&apos;ємна, тож і не завжди зручна. У його лівій руці бу</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0059_другий_раз" name="Плавність: другий раз → вдруге">
+
+      <pattern>
+      <token case_sensitive="no">другий</token>
+      <token case_sensitive="no">раз</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>вдруге</suggestion></message>
+      <example correction="вдруге">а я вже смію торкнутися! - і <marker>другий раз</marker> пролунав сухий тріск парасольки, що відс</example>
+      <example>а я вже смію торкнутися! - і вдруге пролунав сухий тріск парасольки, що відс</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0060_а_між_тим" name="Плавність: а між тим → тимчасом">
+
+      <pattern>
+      <token case_sensitive="no">а</token>
+      <token case_sensitive="no">між</token>
+      <token case_sensitive="no">тим</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>тимчасом</suggestion></message>
+      <example correction="тимчасом">Варенуха, і дізнатися, що з ним сталося, <marker>а між тим</marker> він до десятої години вечора не міг</example>
+      <example>Варенуха, і дізнатися, що з ним сталося, тимчасом він до десятої години вечора не міг</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0061_в_той_же_момент" name="Плавність: в той же момент → водночас">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">той</token>
+      <token case_sensitive="no">же</token>
+      <token case_sensitive="no">момент</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>водночас</suggestion></message>
+      <example correction="водночас">фіндиректора, але <marker>в той же момент</marker> і обрадувало:</example>
+      <example>фіндиректора, але водночас і обрадувало:</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0062_в_той_момент" name="Плавність: В той момент → Тоді">
+
+      <pattern>
+      <token case_sensitive="no">В</token>
+      <token case_sensitive="no">той</token>
+      <token case_sensitive="no">момент</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>Тоді</suggestion></message>
+      <example correction="Тоді">и, маленькі містечка та дрібні торговці. <marker>В той момент</marker> баски ладні були підтримати будь-яку</example>
+      <example>и, маленькі містечка та дрібні торговці. Тоді баски ладні були підтримати будь-яку</example>
+    </rule>
+
+    <rule id="UA_GEC_F_POORFLOW_0063_кожну_хвилину" name="Плавність: кожну хвилину → щохвилини">
+
+      <pattern>
+      <token case_sensitive="no">кожну</token>
+      <token case_sensitive="no">хвилину</token>
+      </pattern>
+      <message>Неприродний потік речення. Краще: <suggestion>щохвилини</suggestion></message>
+      <example correction="щохвилини">очами на лампу. Марковна <marker>кожну хвилину</marker> гикає та питає:</example>
+      <example>очами на лампу. Марковна щохвилини гикає та питає:</example>
+    </rule>
+  </category>
+
+  <category id="UA_GEC_STYLE" name="Стиль (UA-GEC)" type="style">
+
+    <rule id="UA_GEC_F_STYLE_0000_декілька" name="Стиль: декілька → кілька">
+
+      <pattern>
+      <token case_sensitive="no">декілька</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>кілька</suggestion> (зустрічається 79× у корпусі UA-GEC)</message>
+      <example correction="кілька">емоції, але ось нарешті у мене з’явилося <marker>декілька</marker> вільних годин та трохи енергії</example>
+      <example>емоції, але ось нарешті у мене з’явилося кілька вільних годин та трохи енергії</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0001_дійсно" name="Стиль: дійсно → справді">
+
+      <pattern>
+      <token case_sensitive="no">дійсно</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>справді</suggestion> (зустрічається 37× у корпусі UA-GEC)</message>
+      <example correction="справді">ничими відносинами. При цьому, <marker>дійсно</marker> «ефективно» на постання такої суперечнос</example>
+      <example>ничими відносинами. При цьому, справді «ефективно» на постання такої суперечнос</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0002_ах" name="Стиль: Ах → Ох">
+
+      <pattern>
+      <token case_sensitive="no">Ах</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>Ох</suggestion> (зустрічається 15× у корпусі UA-GEC)</message>
+      <example correction="Ох">- <marker>Ах</marker> , як страшно! - верещать різно</example>
+      <example>- Ох , як страшно! - верещать різно</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0004_значно" name="Стиль: значно → набагато">
+
+      <antipattern>
+        <token case_sensitive="no">значно</token>
+        <token case_sensitive="no">більше</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">значно</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>набагато</suggestion> (зустрічається 11× у корпусі UA-GEC)</message>
+      <example correction="набагато">, хоч в останніх вони, звісно, були <marker>значно</marker> краще оформлені та інстальовані в оповід</example>
+      <example>, хоч в останніх вони, звісно, були набагато краще оформлені та інстальовані в оповід</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0005_занадто" name="Стиль: занадто → надто">
+
+      <pattern>
+      <token case_sensitive="no">занадто</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>надто</suggestion> (зустрічається 10× у корпусі UA-GEC)</message>
+      <example correction="надто">начення, — відповів я, — але вона зайшла <marker>занадто</marker> далеко. І я знайду її</example>
+      <example>начення, — відповів я, — але вона зайшла надто далеко. І я знайду її</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0010_зовсім" name="Стиль: зовсім → геть">
+
+      <antipattern>
+        <token case_sensitive="no">зовсім</token>
+        <token case_sensitive="no">не</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">зовсім</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>геть</suggestion> (зустрічається 8× у корпусі UA-GEC)</message>
+      <example correction="геть">вертий спосіб, але він вже для <marker>зовсім</marker> зневірених людей –</example>
+      <example>вертий спосіб, але він вже для геть зневірених людей –</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0013_декількох" name="Стиль: декількох → кількох">
+
+      <pattern>
+      <token case_sensitive="no">декількох</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>кількох</suggestion> (зустрічається 8× у корпусі UA-GEC)</message>
+      <example correction="кількох">дні; - Якщо віконний блок складається із <marker>декількох</marker> окремих вікон – ручне регулюв</example>
+      <example>дні; - Якщо віконний блок складається із кількох окремих вікон – ручне регулюв</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0016_бажаю" name="Стиль: бажаю → хочу">
+
+      <antipattern>
+        <token case_sensitive="no">бажаю</token>
+        <token case_sensitive="no" regexp="yes">вам|тобі|усім</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">бажаю</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>хочу</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="хочу">чалась історія одного парубка, про яку я <marker>бажаю</marker> розповісти.</example>
+      <example>чалась історія одного парубка, про яку я хочу розповісти.</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0017_піднявся" name="Стиль: піднявся → підвівся">
+
+      <pattern>
+      <token case_sensitive="no">піднявся</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>підвівся</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="підвівся">таке, одна суцільна помилка) <marker>піднявся</marker> і в хвилюванні</example>
+      <example>таке, одна суцільна помилка) підвівся і в хвилюванні</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0020_слідкувати" name="Стиль: слідкувати → стежити">
+
+      <pattern>
+      <token case_sensitive="no">слідкувати</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>стежити</suggestion> (зустрічається 7× у корпусі UA-GEC)</message>
+      <example correction="стежити">а тебе. Ти нервуєш і перестаєш нормально <marker>слідкувати</marker> за собою. Щоб компенсувати нестачу стате</example>
+      <example>а тебе. Ти нервуєш і перестаєш нормально стежити за собою. Щоб компенсувати нестачу стате</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0021_абсолютно" name="Стиль: абсолютно → геть">
+
+      <pattern>
+      <token case_sensitive="no">абсолютно</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>геть</suggestion> Також: <suggestion>цілковито</suggestion>. (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="геть">і миші. Криси і миші є <marker>абсолютно</marker> усюди. Миші у хмарочосах – це</example>
+      <example>і миші. Криси і миші є геть усюди. Миші у хмарочосах – це</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0022_в_основному" name="Стиль: в основному → здебільшого">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">основному</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>здебільшого</suggestion> Також: <suggestion>переважно</suggestion>. (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="здебільшого">неправда, бо доісторичні люди займалися <marker>в основному</marker> збиральництвом: ягоди, гриби, хробаки та</example>
+      <example>неправда, бо доісторичні люди займалися здебільшого збиральництвом: ягоди, гриби, хробаки та</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0023_питання" name="Стиль: питання → запитання">
+
+      <antipattern>
+        <token case_sensitive="no">це</token>
+        <token case_sensitive="no">питання</token>
+      </antipattern>
+      <pattern>
+      <token case_sensitive="no">питання</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>запитання</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="запитання">ахрайства 8. 4. Провокаційне <marker>питання</marker> . В цьому експерименті учасник (п</example>
+      <example>ахрайства 8. 4. Провокаційне запитання . В цьому експерименті учасник (п</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0028_рекомендую" name="Стиль: рекомендую → раджу">
+
+      <pattern>
+      <token case_sensitive="no">рекомендую</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>раджу</suggestion> (зустрічається 6× у корпусі UA-GEC)</message>
+      <example correction="раджу">пані . Я Вам його <marker>рекомендую</marker> .</example>
+      <example>пані . Я Вам його раджу .</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0030_як_мінімум" name="Стиль: Як мінімум → Щонайменше">
+
+      <pattern>
+      <token case_sensitive="no">Як</token>
+      <token case_sensitive="no">мінімум</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>Щонайменше</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="Щонайменше">дтримати Юрія Дмітрієва? <marker>Як мінімум</marker> ,</example>
+      <example>дтримати Юрія Дмітрієва? Щонайменше ,</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0034_приснився" name="Стиль: приснився → наснився">
+
+      <pattern>
+      <token case_sensitive="no">приснився</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>наснився</suggestion> (зустрічається 5× у корпусі UA-GEC)</message>
+      <example correction="наснився">Сон, який <marker>приснився</marker> цієї ночі Маргариті, був дійсно незвичай</example>
+      <example>Сон, який наснився цієї ночі Маргариті, був дійсно незвичай</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0036_кожен_раз" name="Стиль: кожен раз → щоразу">
+
+      <pattern>
+      <token case_sensitive="no">кожен</token>
+      <token case_sensitive="no">раз</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>щоразу</suggestion> (зустрічається 4× у корпусі UA-GEC)</message>
+      <example correction="щоразу">І ось, що цікаво: з того боку <marker>кожен раз</marker> їдуть такі ж групи людей</example>
+      <example>І ось, що цікаво: з того боку щоразу їдуть такі ж групи людей</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0040_і_т_д" name="Стиль: і т.д. → тощо">
+
+      <pattern>
+      <token case_sensitive="no">і</token>
+      <token case_sensitive="no">т.д.</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>тощо</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="тощо">икористанням ваги тіла, віджимання, прес <marker>і т.д.</marker> Парні вправи з партнером і відпрацювання</example>
+      <example>икористанням ваги тіла, віджимання, прес тощо Парні вправи з партнером і відпрацювання</example>
+    </rule>
+
+    <rule id="UA_GEC_F_STYLE_0041_в_рази" name="Стиль: в рази → набагато">
+
+      <pattern>
+      <token case_sensitive="no">в</token>
+      <token case_sensitive="no">рази</token>
+      </pattern>
+      <message>Стилістична помилка. Краще: <suggestion>набагато</suggestion> (зустрічається 3× у корпусі UA-GEC)</message>
+      <example correction="набагато">такти. Вчіться будувати відносини. Бо це <marker>в рази</marker> важливіше, аніж гроші. Якщо відгукується</example>
+      <example>такти. Вчіться будувати відносини. Бо це набагато важливіше, аніж гроші. Якщо відгукується</example>
+    </rule>
+  </category>
+
+</rules>

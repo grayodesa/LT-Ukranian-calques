@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="rules.css" title="Easy editing stylesheet" ?>
+<!--
+  Ukrainian agreement rules for и/і confusion in pronouns and adjectives
+  
+  Catches common errors like:
+    - який країні → якій країні
+    - в цей галузі → в цій галузі  
+    - той справі → тій справі
+  
+  Two approaches combined:
+    1. POS-tag based rules (universal coverage)
+    2. Frequent word combinations (reliable, no false positives)
+  
+  Add to LanguageTool alongside grammar-fluency-ua.xml
+-->
+<rules lang="uk"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="rules.xsd">
+
+  <!-- ============================================================ -->
+  <!-- PART 1: POS-TAG BASED RULES (universal but need testing)     -->
+  <!-- ============================================================ -->
+  
+  <category id="UK_AGREEMENT_POS" name="Узгодження (POS-теги)" type="grammar">
+
+    <!-- ЯКИЙ vs ЯКІЙ -->
+    
+    <rule id="YAKYI_BEFORE_F_DAV_MIS" name="який → якій (перед ж.р. давальний/місцевий)">
+      <pattern>
+        <token postag="prep.*" postag_regexp="yes" negate_pos="yes"/>
+        <marker>
+          <token case_sensitive="no" regexp="yes">який|Який</token>
+        </marker>
+        <token postag="noun:.*:f:v_dav.*|noun:.*:f:v_mis.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду/відмінка. Перед іменником жіночого роду в давальному/місцевому відмінку: <suggestion><match no="2" case_conversion="preserve">якій</match></suggestion></message>
+      <example correction="якій">В <marker>який</marker> країні ви живете?</example>
+      <example>В якій країні ви живете?</example>
+    </rule>
+
+    <rule id="YAKIJ_BEFORE_M_N" name="якій → який (перед ч.р./с.р.)">
+      <pattern>
+        <marker>
+          <token case_sensitive="no" regexp="yes">якій|Якій</token>
+        </marker>
+        <token postag="noun:.*:m:v_naz.*|noun:.*:m:v_zna.*|noun:.*:n:v_naz.*|noun:.*:n:v_zna.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду. Перед іменником чоловічого/середнього роду: <suggestion><match no="1" case_conversion="preserve">який</match></suggestion></message>
+      <example correction="Який"><marker>Якій</marker> документ потрібен?</example>
+      <example>Який документ потрібен?</example>
+    </rule>
+
+    <!-- ЦЕЙ vs ЦІЙ -->
+    
+    <rule id="TSEY_BEFORE_F_DAV_MIS" name="цей → цій (перед ж.р. давальний/місцевий)">
+      <pattern>
+        <marker>
+          <token case_sensitive="no" regexp="yes">цей|Цей</token>
+        </marker>
+        <token postag="noun:.*:f:v_dav.*|noun:.*:f:v_mis.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду/відмінка. Перед іменником жіночого роду в давальному/місцевому відмінку: <suggestion><match no="1" case_conversion="preserve">цій</match></suggestion></message>
+      <example correction="цій">В <marker>цей</marker> справі багато нюансів.</example>
+      <example>В цій справі багато нюансів.</example>
+    </rule>
+
+    <rule id="TSIJ_BEFORE_M_N" name="цій → цей (перед ч.р./с.р. називний/знахідний)">
+      <pattern>
+        <marker>
+          <token case_sensitive="no" regexp="yes">цій|Цій</token>
+        </marker>
+        <token postag="noun:.*:m:v_naz.*|noun:.*:m:v_zna.*|noun:.*:n:v_naz.*|noun:.*:n:v_zna.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду. Перед іменником чоловічого/середнього роду: <suggestion><match no="1" case_conversion="preserve">цей</match></suggestion></message>
+      <example correction="Цей"><marker>Цій</marker> метод не працює.</example>
+      <example>Цей метод не працює.</example>
+    </rule>
+
+    <!-- ТОЙ vs ТІЙ -->
+    
+    <rule id="TOY_BEFORE_F_DAV_MIS" name="той → тій (перед ж.р. давальний/місцевий)">
+      <pattern>
+        <marker>
+          <token case_sensitive="no" regexp="yes">той|Той</token>
+        </marker>
+        <token postag="noun:.*:f:v_dav.*|noun:.*:f:v_mis.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду/відмінка. Перед іменником жіночого роду в давальному/місцевому відмінку: <suggestion><match no="1" case_conversion="preserve">тій</match></suggestion></message>
+      <example correction="тій">В <marker>той</marker> ситуації це було виправдано.</example>
+      <example>В тій ситуації це було виправдано.</example>
+    </rule>
+
+    <rule id="TIJ_BEFORE_M_N" name="тій → той (перед ч.р./с.р.)">
+      <pattern>
+        <marker>
+          <token case_sensitive="no" regexp="yes">тій|Тій</token>
+        </marker>
+        <token postag="noun:.*:m:v_naz.*|noun:.*:m:v_zna.*|noun:.*:n:v_naz.*|noun:.*:n:v_zna.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду. Перед іменником чоловічого/середнього роду: <suggestion><match no="1" case_conversion="preserve">той</match></suggestion></message>
+      <example correction="Той"><marker>Тій</marker> день був особливим.</example>
+      <example>Той день був особливим.</example>
+    </rule>
+
+    <!-- КОТРИЙ vs КОТРІЙ -->
+    
+    <rule id="KOTRYI_BEFORE_F_DAV_MIS" name="котрий → котрій (перед ж.р.)">
+      <pattern>
+        <marker>
+          <token case_sensitive="no" regexp="yes">котрий|Котрий</token>
+        </marker>
+        <token postag="noun:.*:f:v_dav.*|noun:.*:f:v_mis.*" postag_regexp="yes"/>
+      </pattern>
+      <message>Неузгодженість роду/відмінка: <suggestion><match no="1" case_conversion="preserve">котрій</match></suggestion></message>
+      <example correction="котрій">В <marker>котрий</marker> кімнаті він?</example>
+      <example>В котрій кімнаті він?</example>
+    </rule>
+
+  </category>
+
+  <!-- ============================================================ -->
+  <!-- PART 2: FREQUENT WORD COMBINATIONS (reliable, no FP)         -->
+  <!-- ============================================================ -->
+  
+  <category id="UK_AGREEMENT_FREQ" name="Узгодження (часті слова)" type="grammar">
+
+    <!-- ================= ЯКИЙ → ЯКІЙ ================= -->
+    
+    <rulegroup id="YAKYI_YAKIJ_FREQ" name="який → якій (часті іменники ж.р.)">
+      
+      <!-- Сфери, галузі, області -->
+      <rule id="YAKYI_YAKIJ_SPHERE">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">який|Який</token>
+            <token case_sensitive="no" regexp="yes">країні|галузі|сфері|області|індустрії|категорії|території</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">якій</match> \2</suggestion></message>
+        <example correction="якій країні">В <marker>який країні</marker> ви працюєте?</example>
+        <example>В якій країні ви працюєте?</example>
+      </rule>
+
+      <!-- Робота, справа, діяльність -->
+      <rule id="YAKYI_YAKIJ_WORK">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">який|Який</token>
+            <token case_sensitive="no" regexp="yes">роботі|справі|діяльності|компанії|організації|установі|фірмі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">якій</match> \2</suggestion></message>
+        <example correction="якій компанії">В <marker>який компанії</marker> ти працюєш?</example>
+        <example>В якій компанії ти працюєш?</example>
+      </rule>
+
+      <!-- Форма, система, програма -->
+      <rule id="YAKYI_YAKIJ_SYSTEM">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">який|Який</token>
+            <token case_sensitive="no" regexp="yes">формі|системі|програмі|мові|версії|конфігурації|структурі|схемі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">якій</match> \2</suggestion></message>
+        <example correction="якій мові">На <marker>який мові</marker> написано?</example>
+        <example>На якій мові написано?</example>
+      </rule>
+
+      <!-- Частина, міра, книга -->
+      <rule id="YAKYI_YAKIJ_MISC">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">який|Який</token>
+            <token case_sensitive="no" regexp="yes">частині|мірі|книзі|школі|історії|темі|групі|команді|папці|базі|таблиці|сторінці</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">якій</match> \2</suggestion></message>
+        <example correction="якій папці">В <marker>який папці</marker> лежить файл?</example>
+        <example>В якій папці лежить файл?</example>
+      </rule>
+
+      <!-- Ситуація, позиція, функція -->
+      <rule id="YAKYI_YAKIJ_SITUATION">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">який|Який</token>
+            <token case_sensitive="no" regexp="yes">ситуації|позиції|функції|секції|колекції|редакції|традиції|конвенції|акції|реакції|операції</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">якій</match> \2</suggestion></message>
+        <example correction="якій ситуації">В <marker>який ситуації</marker> це доречно?</example>
+        <example>В якій ситуації це доречно?</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ЯКІЙ → ЯКИЙ ================= -->
+    
+    <rulegroup id="YAKIJ_YAKYI_FREQ" name="якій → який (часті іменники ч.р.)">
+      
+      <rule id="YAKIJ_YAKYI_TIME">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">якій|Якій</token>
+            <token case_sensitive="no" regexp="yes">спосіб|момент|час|день|рік|місяць|період|термін|етап|крок</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник чоловічого роду вимагає: <suggestion><match no="1" case_conversion="preserve">який</match> \2</suggestion></message>
+        <example correction="який спосіб">В <marker>якій спосіб</marker> це зробити?</example>
+        <example>В який спосіб це зробити?</example>
+      </rule>
+
+      <rule id="YAKIJ_YAKYI_DOCS">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">якій|Якій</token>
+            <token case_sensitive="no" regexp="yes">документ|файл|проєкт|продукт|сервіс|сервер|контейнер|модуль|компонент|елемент|об'єкт|клас|метод|інтерфейс</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник чоловічого роду вимагає: <suggestion><match no="1" case_conversion="preserve">який</match> \2</suggestion></message>
+        <example correction="який файл">В <marker>якій файл</marker> записати?</example>
+        <example>В який файл записати?</example>
+      </rule>
+
+      <rule id="YAKIJ_YAKYI_TEXT">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">якій|Якій</token>
+            <token case_sensitive="no" regexp="yes">текст|код|скрипт|запит|запис|блок|список|масив|рядок|стовпець|параметр|аргумент</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник чоловічого роду вимагає: <suggestion><match no="1" case_conversion="preserve">який</match> \2</suggestion></message>
+        <example correction="який код">В <marker>якій код</marker> додати?</example>
+        <example>В який код додати?</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ЦЕЙ → ЦІЙ ================= -->
+    
+    <rulegroup id="TSEY_TSIJ_FREQ" name="цей → цій (часті іменники ж.р.)">
+      
+      <rule id="TSEY_TSIJ_SPHERE">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">цей|Цей</token>
+            <token case_sensitive="no" regexp="yes">країні|галузі|сфері|області|індустрії|категорії|території|справі|роботі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">цій</match> \2</suggestion></message>
+        <example correction="цій галузі">В <marker>цей галузі</marker> багато змін.</example>
+        <example>В цій галузі багато змін.</example>
+      </rule>
+
+      <rule id="TSEY_TSIJ_SYSTEM">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">цей|Цей</token>
+            <token case_sensitive="no" regexp="yes">системі|програмі|мові|версії|конфігурації|функції|ситуації|позиції|компанії|організації</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">цій</match> \2</suggestion></message>
+        <example correction="цій системі">В <marker>цей системі</marker> є баг.</example>
+        <example>В цій системі є баг.</example>
+      </rule>
+
+      <rule id="TSEY_TSIJ_MISC">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">цей|Цей</token>
+            <token case_sensitive="no" regexp="yes">частині|формі|структурі|схемі|таблиці|базі|папці|сторінці|темі|статті|книзі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">цій</match> \2</suggestion></message>
+        <example correction="цій статті">В <marker>цей статті</marker> описано алгоритм.</example>
+        <example>В цій статті описано алгоритм.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ЦІЙ → ЦЕЙ ================= -->
+    
+    <rulegroup id="TSIJ_TSEY_FREQ" name="цій → цей (часті іменники ч.р.)">
+      
+      <rule id="TSIJ_TSEY_COMMON">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">цій|Цій</token>
+            <token case_sensitive="no" regexp="yes">метод|підхід|спосіб|варіант|випадок|момент|час|день|рік|період|етап|крок</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник чоловічого роду вимагає: <suggestion><match no="1" case_conversion="preserve">цей</match> \2</suggestion></message>
+        <example correction="цей метод"><marker>Цій метод</marker> не працює.</example>
+        <example>Цей метод не працює.</example>
+      </rule>
+
+      <rule id="TSIJ_TSEY_IT">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">цій|Цій</token>
+            <token case_sensitive="no" regexp="yes">файл|документ|проєкт|сервер|контейнер|модуль|компонент|код|скрипт|запит|тест</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник чоловічого роду вимагає: <suggestion><match no="1" case_conversion="preserve">цей</match> \2</suggestion></message>
+        <example correction="цей файл"><marker>Цій файл</marker> потрібно видалити.</example>
+        <example>Цей файл потрібно видалити.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ТОЙ → ТІЙ ================= -->
+    
+    <rulegroup id="TOY_TIJ_FREQ" name="той → тій (часті іменники ж.р.)">
+      
+      <rule id="TOY_TIJ_COMMON">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">той|Той</token>
+            <token case_sensitive="no" regexp="yes">ситуації|справі|роботі|компанії|країні|галузі|сфері|області|системі|програмі|частині|мірі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник жіночого роду вимагає: <suggestion><match no="1" case_conversion="preserve">тій</match> \2</suggestion></message>
+        <example correction="тій ситуації">В <marker>той ситуації</marker> це було правильно.</example>
+        <example>В тій ситуації це було правильно.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ТІЙ → ТОЙ ================= -->
+    
+    <rulegroup id="TIJ_TOY_FREQ" name="тій → той (часті іменники ч.р.)">
+      
+      <rule id="TIJ_TOY_COMMON">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">тій|Тій</token>
+            <token case_sensitive="no" regexp="yes">момент|час|день|рік|період|випадок|спосіб|метод|підхід|варіант</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість. Іменник чоловічого роду вимагає: <suggestion><match no="1" case_conversion="preserve">той</match> \2</suggestion></message>
+        <example correction="той момент">В <marker>тій момент</marker> я зрозумів.</example>
+        <example>В той момент я зрозумів.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ОДНИЙ vs ОДНІЙ ================= -->
+    
+    <rulegroup id="ODNYI_ODNIJ" name="одний/одній узгодження">
+      
+      <rule id="ODNYI_ODNIJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">одний|Одний</token>
+            <token case_sensitive="no" regexp="yes">стороні|руці|нозі|частині|галузі|справі|країні</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">одній</match> \2</suggestion></message>
+        <example correction="одній стороні">З <marker>одний стороні</marker> це добре.</example>
+        <example>З одній стороні це добре.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= КОЖНИЙ vs КОЖНІЙ ================= -->
+    
+    <rulegroup id="KOZHNYI_KOZHNIJ" name="кожний/кожній узгодження">
+      
+      <rule id="KOZHNYI_KOZHNIJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">кожний|Кожний</token>
+            <token case_sensitive="no" regexp="yes">людині|особі|справі|ситуації|галузі|країні|компанії|сфері</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">кожній</match> \2</suggestion></message>
+        <example correction="кожній людині">В <marker>кожний людині</marker> є щось добре.</example>
+        <example>В кожній людині є щось добре.</example>
+      </rule>
+
+      <rule id="KOZHNIJ_KOZHNYI_M">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">кожній|Кожній</token>
+            <token case_sensitive="no" regexp="yes">день|рік|раз|момент|випадок|крок|етап</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">кожний</match> \2</suggestion></message>
+        <example correction="кожний день"><marker>Кожній день</marker> приносить щось нове.</example>
+        <example>Кожний день приносить щось нове.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ДЕЯКИЙ vs ДЕЯКІЙ ================= -->
+    
+    <rulegroup id="DEYAKYI_DEYAKIJ" name="деякий/деякій узгодження">
+      
+      <rule id="DEYAKYI_DEYAKIJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">деякий|Деякий</token>
+            <token case_sensitive="no" regexp="yes">мірі|частині|справі|ситуації|галузі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">деякій</match> \2</suggestion></message>
+        <example correction="деякій мірі">В <marker>деякий мірі</marker> це правда.</example>
+        <example>В деякій мірі це правда.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ІНШИЙ vs ІНШІЙ ================= -->
+    
+    <rulegroup id="INSHYI_INSHIJ" name="інший/іншій узгодження">
+      
+      <rule id="INSHYI_INSHIJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">інший|Інший</token>
+            <token case_sensitive="no" regexp="yes">стороні|країні|галузі|сфері|справі|ситуації|компанії|мові|системі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">іншій</match> \2</suggestion></message>
+        <example correction="іншій країні">В <marker>інший країні</marker> це заборонено.</example>
+        <example>В іншій країні це заборонено.</example>
+      </rule>
+
+      <rule id="INSHIJ_INSHYI_M">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">іншій|Іншій</token>
+            <token case_sensitive="no" regexp="yes">спосіб|бік|варіант|випадок|момент|час|день</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">інший</match> \2</suggestion></message>
+        <example correction="інший спосіб"><marker>Іншій спосіб</marker> — використати API.</example>
+        <example>Інший спосіб — використати API.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ЖОДНИЙ vs ЖОДНІЙ ================= -->
+    
+    <rulegroup id="ZHODNYI_ZHODNIJ" name="жодний/жодній узгодження">
+      
+      <rule id="ZHODNYI_ZHODNIJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no" regexp="yes">жодний|Жодний</token>
+            <token case_sensitive="no" regexp="yes">країні|галузі|сфері|справі|ситуації|мірі</token>
+          </marker>
+        </pattern>
+        <message>Неузгодженість: <suggestion><match no="1" case_conversion="preserve">жодній</match> \2</suggestion></message>
+        <example correction="жодній країні">В <marker>жодний країні</marker> це не дозволено.</example>
+        <example>В жодній країні це не дозволено.</example>
+      </rule>
+
+    </rulegroup>
+
+  </category>
+
+  <!-- ============================================================ -->
+  <!-- PART 2.5: DISTANT AGREEMENT (skip tokens between)            -->
+  <!-- For constructions like "такий собі ... TikTok"               -->
+  <!-- ============================================================ -->
+  
+  <category id="UK_AGREEMENT_DISTANT" name="Узгодження (дистантне)" type="grammar">
+
+    <!-- ================= ТАКИЙ/ТАКІЙ СОБІ ================= -->
+    <!-- "такий собі лінгвістичний TikTok" — такий agrees with TikTok -->
+    
+    <rulegroup id="TAKYI_SOBI" name="такий/такій собі + іменник">
+    
+      <!-- такій собі + [adj]* + masc noun → такий -->
+      <rule id="TAKIJ_SOBI_M">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такій</token>
+          </marker>
+          <token case_sensitive="no">собі</token>
+          <token skip="-1" postag="noun:inanim:m:v_naz.*|noun:anim:m:v_naz.*" postag_regexp="yes"><exception postag="noun:.*:f:.*|noun:.*:n:.*" postag_regexp="yes"/></token>
+        </pattern>
+        <message>Неузгодженість роду. Іменник чоловічого роду вимагає: <suggestion>такий</suggestion> собі</message>
+        <example correction="такий"><marker>Такій</marker> собі лінгвістичний TikTok.</example>
+        <example>Такий собі лінгвістичний TikTok.</example>
+      </rule>
+
+      <!-- такий собі + [adj]* + fem noun (v_naz) → така -->
+      <rule id="TAKYI_SOBI_F_NAZ">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такий</token>
+          </marker>
+          <token case_sensitive="no">собі</token>
+          <token skip="-1" postag="noun:inanim:f:v_naz.*|noun:anim:f:v_naz.*" postag_regexp="yes"><exception postag="noun:.*:m:.*|noun:.*:n:.*" postag_regexp="yes"/></token>
+        </pattern>
+        <message>Неузгодженість роду. Іменник жіночого роду вимагає: <suggestion>така</suggestion> собі</message>
+        <example correction="така"><marker>Такий</marker> собі цікава історія.</example>
+        <example>Така собі цікава історія.</example>
+      </rule>
+
+      <!-- такий собі + [adj]* + neut noun → таке -->
+      <rule id="TAKYI_SOBI_N">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такий</token>
+          </marker>
+          <token case_sensitive="no">собі</token>
+          <token skip="-1" postag="noun:inanim:n:v_naz.*" postag_regexp="yes"><exception postag="noun:.*:m:.*|noun:.*:f:.*" postag_regexp="yes"/></token>
+        </pattern>
+        <message>Неузгодженість роду. Іменник середнього роду вимагає: <suggestion>таке</suggestion> собі</message>
+        <example correction="таке"><marker>Такий</marker> собі дивне явище.</example>
+        <example>Таке собі дивне явище.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ЯКИЙ/ЯКІЙ + ADJ + NOUN ================= -->
+    <!-- "в який саме країні" — який agrees with країні -->
+    
+    <rulegroup id="YAKYI_ADJ_NOUN" name="який/якій + прикм. + іменник">
+
+      <!-- який + adj + fem noun (v_mis/v_dav) → якій -->
+      <rule id="YAKYI_ADJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">який</token>
+          </marker>
+          <token postag="adj:.*" postag_regexp="yes"/>
+          <token postag="noun:.*:f:v_mis.*|noun:.*:f:v_dav.*" postag_regexp="yes"/>
+        </pattern>
+        <message>Неузгодженість роду. Іменник жіночого роду вимагає: <suggestion>якій</suggestion></message>
+        <example correction="якій">В <marker>який</marker> саме країні?</example>
+        <example>В якій саме країні?</example>
+      </rule>
+
+      <!-- якій + adj + masc noun → який -->
+      <rule id="YAKIJ_ADJ_M">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">якій</token>
+          </marker>
+          <token postag="adj:.*" postag_regexp="yes"/>
+          <token postag="noun:.*:m:v_naz.*|noun:.*:m:v_zna.*" postag_regexp="yes"/>
+        </pattern>
+        <message>Неузгодженість роду. Іменник чоловічого роду вимагає: <suggestion>який</suggestion></message>
+        <example correction="який"><marker>Якій</marker> новий метод?</example>
+        <example>Який новий метод?</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= ЦЕЙ/ЦІЙ + ADJ + NOUN ================= -->
+    
+    <rulegroup id="TSEY_ADJ_NOUN" name="цей/цій + прикм. + іменник">
+
+      <rule id="TSEY_ADJ_F">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">цей</token>
+          </marker>
+          <token postag="adj:.*" postag_regexp="yes"/>
+          <token postag="noun:.*:f:v_mis.*|noun:.*:f:v_dav.*" postag_regexp="yes"/>
+        </pattern>
+        <message>Неузгодженість роду. Іменник жіночого роду вимагає: <suggestion>цій</suggestion></message>
+        <example correction="цій">В <marker>цей</marker> новій системі.</example>
+        <example>В цій новій системі.</example>
+      </rule>
+
+      <rule id="TSIJ_ADJ_M">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">цій</token>
+          </marker>
+          <token postag="adj:.*" postag_regexp="yes"/>
+          <token postag="noun:.*:m:v_naz.*|noun:.*:m:v_zna.*" postag_regexp="yes"/>
+        </pattern>
+        <message>Неузгодженість роду. Іменник чоловічого роду вимагає: <suggestion>цей</suggestion></message>
+        <example correction="цей"><marker>Цій</marker> новий підхід.</example>
+        <example>Цей новий підхід.</example>
+      </rule>
+
+    </rulegroup>
+
+    <!-- ================= WORD-LIST FALLBACK FOR "ТАКИЙ СОБІ" ================= -->
+    <!-- In case POS-tagger fails, catch common nouns -->
+    <!-- Note: "такій" does NOT exist in називний відмінок! -->
+    <!-- такій is only давальний/місцевий ж.р. (такій жінці, в такій справі) -->
+    
+    <rulegroup id="TAKYI_SOBI_WORDLIST" name="такий/такій собі (словник)">
+
+      <!-- такій собі + adj + masc noun → такий собі -->
+      <rule id="TAKIJ_SOBI_M_WORDS">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такій</token>
+            <token case_sensitive="no">собі</token>
+          </marker>
+          <token/>
+          <token case_sensitive="no" regexp="yes">TikTok|Instagram|Facebook|YouTube|Telegram|Twitter|блог|сайт|канал|подкаст|проєкт|продукт|сервіс|стартап|бізнес|бренд|тренд|хайп|контент|формат|жанр|стиль|підхід|метод|спосіб|варіант|приклад|кейс|факт|міф|тест|квест|челендж|додаток|застосунок|інструмент|механізм|алгоритм|патерн|шаблон|фреймворк</token>
+        </pattern>
+        <message>«Такій» не існує в називному відмінку. Для ч.р.: <suggestion>такий собі</suggestion></message>
+        <example correction="такий собі"><marker>Такій собі</marker> лінгвістичний TikTok.</example>
+        <example>Такий собі лінгвістичний TikTok.</example>
+      </rule>
+
+      <!-- такій собі + adj + fem noun → така собі -->
+      <rule id="TAKIJ_SOBI_F_WORDS">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такій</token>
+            <token case_sensitive="no">собі</token>
+          </marker>
+          <token/>
+          <token case_sensitive="no" regexp="yes">історія|справа|річ|штука|фішка|тема|ідея|концепція|стратегія|система|програма|платформа|мережа|спільнота|команда|група|компанія|організація|бібліотека|функція|фіча|гра|книга|стаття|пісня</token>
+        </pattern>
+        <message>«Такій» не існує в називному відмінку. Для ж.р.: <suggestion>така собі</suggestion></message>
+        <example correction="така собі"><marker>Такій собі</marker> цікава історія.</example>
+        <example>Така собі цікава історія.</example>
+      </rule>
+
+      <!-- такій собі + adj + neut noun → таке собі -->
+      <rule id="TAKIJ_SOBI_N_WORDS">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такій</token>
+            <token case_sensitive="no">собі</token>
+          </marker>
+          <token/>
+          <token case_sensitive="no" regexp="yes">явище|питання|завдання|рішення|середовище|оточення|налаштування|повідомлення|значення|враження|місце|поле|вікно|відео|фото</token>
+        </pattern>
+        <message>«Такій» не існує в називному відмінку. Для с.р.: <suggestion>таке собі</suggestion></message>
+        <example correction="таке собі"><marker>Такій собі</marker> дивне явище.</example>
+        <example>Таке собі дивне явище.</example>
+      </rule>
+
+      <!-- такий собі + adj + fem noun → така собі -->
+      <rule id="TAKYI_SOBI_F_WORDS">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такий</token>
+            <token case_sensitive="no">собі</token>
+          </marker>
+          <token/>
+          <token case_sensitive="no" regexp="yes">історія|справа|річ|штука|фішка|тема|ідея|концепція|стратегія|система|програма|платформа|мережа|спільнота|команда|група|компанія|організація|бібліотека|функція|фіча|гра|книга|стаття|пісня</token>
+        </pattern>
+        <message>Неузгодженість роду. Іменник жіночого роду вимагає: <suggestion>така собі</suggestion></message>
+        <example correction="така собі"><marker>Такий собі</marker> цікава історія.</example>
+        <example>Така собі цікава історія.</example>
+      </rule>
+
+      <!-- такий собі + adj + neut noun → таке собі -->
+      <rule id="TAKYI_SOBI_N_WORDS">
+        <pattern>
+          <marker>
+            <token case_sensitive="no">такий</token>
+            <token case_sensitive="no">собі</token>
+          </marker>
+          <token/>
+          <token case_sensitive="no" regexp="yes">явище|питання|завдання|рішення|середовище|оточення|налаштування|повідомлення|значення|враження|місце|поле|вікно|відео|фото</token>
+        </pattern>
+        <message>Неузгодженість роду. Іменник середнього роду вимагає: <suggestion>таке собі</suggestion></message>
+        <example correction="таке собі"><marker>Такий собі</marker> дивне явище.</example>
+        <example>Таке собі дивне явище.</example>
+      </rule>
+
+    </rulegroup>
+
+  </category>
+
+  <!-- ============================================================ -->
+  <!-- PART 3: PREPOSITION + PRONOUN COMBINATIONS                   -->
+  <!-- ============================================================ -->
+  
+  <category id="UK_AGREEMENT_PREP" name="Узгодження (прийменник + займенник)" type="grammar">
+
+    <!-- В/У + ЯКИЙ + ж.р. -->
+    <rule id="V_YAKYI_F" name="в який → в якій (перед ж.р.)">
+      <pattern>
+        <token case_sensitive="no" regexp="yes">в|у|на|по|при|о</token>
+        <marker>
+          <token case_sensitive="no">який</token>
+        </marker>
+        <token case_sensitive="no" regexp="yes">країні|галузі|сфері|області|справі|роботі|компанії|системі|програмі|формі|частині|мірі|ситуації|позиції|функції|мові|версії|папці|базі|таблиці|книзі|школі|історії|темі|групі|команді|сторінці|статті</token>
+      </pattern>
+      <message>Після прийменника перед іменником жіночого роду: <suggestion>якій</suggestion></message>
+      <example correction="якій">В <marker>який</marker> країні ви народилися?</example>
+      <example>В якій країні ви народилися?</example>
+    </rule>
+
+    <!-- В/У + ЦЕЙ + ж.р. -->
+    <rule id="V_TSEY_F" name="в цей → в цій (перед ж.р.)">
+      <pattern>
+        <token case_sensitive="no" regexp="yes">в|у|на|по|при|о</token>
+        <marker>
+          <token case_sensitive="no">цей</token>
+        </marker>
+        <token case_sensitive="no" regexp="yes">країні|галузі|сфері|області|справі|роботі|компанії|системі|програмі|формі|частині|мірі|ситуації|позиції|функції|мові|версії|папці|базі|таблиці|книзі|школі|історії|темі|групі|команді|сторінці|статті</token>
+      </pattern>
+      <message>Після прийменника перед іменником жіночого роду: <suggestion>цій</suggestion></message>
+      <example correction="цій">В <marker>цей</marker> справі багато деталей.</example>
+      <example>В цій справі багато деталей.</example>
+    </rule>
+
+    <!-- В/У + ТОЙ + ж.р. -->
+    <rule id="V_TOY_F" name="в той → в тій (перед ж.р.)">
+      <pattern>
+        <token case_sensitive="no" regexp="yes">в|у|на|по|при|о</token>
+        <marker>
+          <token case_sensitive="no">той</token>
+        </marker>
+        <token case_sensitive="no" regexp="yes">країні|галузі|сфері|області|справі|роботі|компанії|системі|програмі|формі|частині|мірі|ситуації|позиції|мові|книзі|історії|темі</token>
+      </pattern>
+      <message>Після прийменника перед іменником жіночого роду: <suggestion>тій</suggestion></message>
+      <example correction="тій">В <marker>той</marker> ситуації він мав рацію.</example>
+      <example>В тій ситуації він мав рацію.</example>
+    </rule>
+
+  </category>
+
+</rules>
