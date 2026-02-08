@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Ukrainian rules for common и/і russisms in pronouns/adjectives
+  сами→самі, которий→котрий, синій→синій (accent), etc.
+-->
+<rules lang="uk"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="rules.xsd">
+
+  <category id="UA_RUSSISM_YI" name="Русизми (и замість і)" type="misspelling">
+
+    <!-- сами → самі -->
+    <rule id="UA_RUSSISM_SAMY" name="Русизм: сами → самі">
+      <pattern>
+        <token case_sensitive="no">сами</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>самі</suggestion></message>
+      <example correction="самі">Ось репозиторій, що містить й <marker>сами</marker> правила.</example>
+      <example>Ось репозиторій, що містить й самі правила.</example>
+    </rule>
+
+    <!-- самий → сам / найбільш (context-dependent) -->
+    <rule id="UA_RUSSISM_SAMYI" name="Русизм: самий → найбільш">
+      <antipattern>
+        <token case_sensitive="no">сам</token>
+      </antipattern>
+      <pattern>
+        <token case_sensitive="no">самий</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>найбільш</suggestion> або <suggestion>сам</suggestion></message>
+      <example correction="найбільш"><marker>Самий</marker> важливий момент.</example>
+      <example>Найбільш важливий момент.</example>
+    </rule>
+
+    <!-- саме (check: NOT the particle саме=exactly) -->
+    <!-- Skip this - саме is a valid Ukrainian particle -->
+
+    <!-- которий → котрий -->
+    <rule id="UA_RUSSISM_KOTORYI" name="Русизм: которий → котрий">
+      <pattern>
+        <token case_sensitive="no">которий</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>котрий</suggestion> або <suggestion>який</suggestion></message>
+      <example correction="котрий">Документ, <marker>которий</marker> потрібен.</example>
+      <example>Документ, котрий потрібен.</example>
+    </rule>
+
+    <rule id="UA_RUSSISM_KOTORA" name="Русизм: котора → котра">
+      <pattern>
+        <token case_sensitive="no">котора</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>котра</suggestion> або <suggestion>яка</suggestion></message>
+      <example correction="котра">Книга, <marker>котора</marker> лежить на столі.</example>
+      <example>Книга, котра лежить на столі.</example>
+    </rule>
+
+    <rule id="UA_RUSSISM_KOTORE" name="Русизм: которе → котре">
+      <pattern>
+        <token case_sensitive="no">которе</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>котре</suggestion> або <suggestion>яке</suggestion></message>
+      <example correction="котре">Місто, <marker>которе</marker> я люблю.</example>
+      <example>Місто, котре я люблю.</example>
+    </rule>
+
+    <!-- ети → ці (demonstrative) -->
+    <rule id="UA_RUSSISM_ETI" name="Русизм: ети → ці">
+      <pattern>
+        <token case_sensitive="no">ети</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>ці</suggestion></message>
+      <example correction="ці"><marker>Ети</marker> документи важливі.</example>
+      <example>Ці документи важливі.</example>
+    </rule>
+
+    <!-- етот → цей -->
+    <rule id="UA_RUSSISM_ETOT" name="Русизм: етот → цей">
+      <pattern>
+        <token case_sensitive="no">етот</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>цей</suggestion></message>
+      <example correction="цей"><marker>Етот</marker> файл потрібен.</example>
+      <example>Цей файл потрібен.</example>
+    </rule>
+
+    <!-- какой → який -->
+    <rule id="UA_RUSSISM_KAKOI" name="Русизм: какой → який">
+      <pattern>
+        <token case_sensitive="no">какой</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>який</suggestion></message>
+      <example correction="який"><marker>Какой</marker> файл потрібен?</example>
+      <example>Який файл потрібен?</example>
+    </rule>
+
+    <!-- какая → яка -->
+    <rule id="UA_RUSSISM_KAKAYA" name="Русизм: какая → яка">
+      <pattern>
+        <token case_sensitive="no">какая</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>яка</suggestion></message>
+      <example correction="яка"><marker>Какая</marker> різниця?</example>
+      <example>Яка різниця?</example>
+    </rule>
+
+    <!-- чтоби/чтобы → щоб -->
+    <rule id="UA_RUSSISM_CHTOBY" name="Русизм: чтоби/чтобы → щоб">
+      <pattern>
+        <token case_sensitive="no" regexp="yes">чтоби|чтобы</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>щоб</suggestion></message>
+      <example correction="щоб">Це потрібно, <marker>чтоби</marker> працювало.</example>
+      <example>Це потрібно, щоб працювало.</example>
+    </rule>
+
+    <!-- когда → коли -->
+    <rule id="UA_RUSSISM_KOGDA" name="Русизм: когда → коли">
+      <pattern>
+        <token case_sensitive="no">когда</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>коли</suggestion></message>
+      <example correction="коли"><marker>Когда</marker> це буде готово?</example>
+      <example>Коли це буде готово?</example>
+    </rule>
+
+    <!-- тогда → тоді -->
+    <rule id="UA_RUSSISM_TOGDA" name="Русизм: тогда → тоді">
+      <pattern>
+        <token case_sensitive="no">тогда</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>тоді</suggestion></message>
+      <example correction="тоді"><marker>Тогда</marker> все буде добре.</example>
+      <example>Тоді все буде добре.</example>
+    </rule>
+
+    <!-- нікогда → ніколи -->
+    <rule id="UA_RUSSISM_NIKOGDA" name="Русизм: нікогда → ніколи">
+      <pattern>
+        <token case_sensitive="no">нікогда</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>ніколи</suggestion></message>
+      <example correction="ніколи">Він <marker>нікогда</marker> не запізнюється.</example>
+      <example>Він ніколи не запізнюється.</example>
+    </rule>
+
+    <!-- всігда → завжди -->
+    <rule id="UA_RUSSISM_VSIGDA" name="Русизм: всігда → завжди">
+      <pattern>
+        <token case_sensitive="no">всігда</token>
+      </pattern>
+      <message>Русизм. Українською: <suggestion>завжди</suggestion></message>
+      <example correction="завжди">Вона <marker>всігда</marker> приходить вчасно.</example>
+      <example>Вона завжди приходить вчасно.</example>
+    </rule>
+
+  </category>
+
+</rules>
