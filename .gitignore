@@ -5,3 +5,4 @@ __pycache__/
 ua-gec/
 ngrams/
 *.log
+.env

@@ -1,19 +1,30 @@
 services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      languagetool:
+        condition: service_healthy
+    restart: unless-stopped
+
   languagetool:
     build: .
     container_name: languagetool-ua
-    ports:
-      - "8010:8010"
+    expose:
+      - "8010"
     environment:
-      # Memory — на Mac Studio M1 Max можно дать больше
-      - Java_Xms=512m
-      - Java_Xmx=2g
-      # Prewarming — загрузить правила заранее для быстрого первого запроса
+      - Java_Xms=${JAVA_XMS:-512m}
+      - Java_Xmx=${JAVA_XMX:-2g}
       - langtool_pipelinePrewarming=true
-      # Опционально: n-gram модель для ещё лучшей проверки
       # - langtool_languageModel=/ngrams
     # volumes:
-      # Раскомментировать если скачал n-gram данные:
       # - ./ngrams:/ngrams:ro
     restart: unless-stopped
     healthcheck:
@@ -22,3 +33,7 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
+
+volumes:
+  caddy_data:
+  caddy_config:

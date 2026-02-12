@@ -1,0 +1,43 @@
+{
+	email {$ACME_EMAIL:admin@nest42.com}
+}
+
+lt.nest42.com {
+	# Reverse proxy to LanguageTool
+	reverse_proxy languagetool:8010
+
+	# Request body size limit (prevent abuse with huge texts)
+	request_body {
+		max_size 100KB
+	}
+
+	# Rate limiting: configure in Cloudflare WAF Rules
+	# (Caddy standard image doesn't include rate_limit module)
+
+	# Security headers
+	header {
+		-Server
+		X-Content-Type-Options nosniff
+		X-Frame-Options DENY
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+
+	# CORS — adjust origin as needed
+	@cors_preflight method OPTIONS
+	handle @cors_preflight {
+		header Access-Control-Allow-Origin "{$CORS_ORIGIN:*}"
+		header Access-Control-Allow-Methods "GET, POST, OPTIONS"
+		header Access-Control-Allow-Headers "Content-Type"
+		header Access-Control-Max-Age "86400"
+		respond "" 204
+	}
+	header Access-Control-Allow-Origin "{$CORS_ORIGIN:*}"
+
+	# Access log
+	log {
+		output file /data/access.log {
+			roll_size 10mb
+			roll_keep 5
+		}
+	}
+}
