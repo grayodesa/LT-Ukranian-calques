@@ -1,19 +1,4 @@
 services:
-  caddy:
-    image: caddy:2-alpine
-    container_name: caddy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile:ro
-      - caddy_data:/data
-      - caddy_config:/config
-    depends_on:
-      languagetool:
-        condition: service_healthy
-    restart: unless-stopped
-
   languagetool:
     build: .
     container_name: languagetool-ua
@@ -34,6 +19,13 @@ services:
       retries: 3
       start_period: 30s
 
-volumes:
-  caddy_data:
-  caddy_config:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared-lt
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      languagetool:
+        condition: service_healthy
+    restart: unless-stopped
